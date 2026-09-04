@@ -1,35 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yara & Mauricio</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f4eee4;
-      color: #3d4145;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
-    h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-    p {
-      font-size: 18px;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#e8dccb" />
+<title>Yara & Mauricio — 07.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=DM+Sans:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f6f0e7; --paper:#eee3d4; --sand:#dcc8ae; --earth:#8a6954; --clay:#a9735b;
+  --blue:#8ea6b0; --blue-deep:#536c76; --ink:#3f3832; --gold:#b59363; --white:#fffdf9;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(180deg,#e7dbc9,#f7f1e8 28%,#e8dccb 100%);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#8b745d 0.6px,transparent .7px);background-size:6px 6px;mix-blend-mode:multiply}
+.shell{width:min(100%,520px);margin:auto;box-shadow:0 0 80px rgba(80,59,40,.12);background:rgba(248,243,235,.9)}
+.section{position:relative;min-height:100svh;padding:74px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.section.compact{min-height:auto;padding-top:80px;padding-bottom:80px}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--earth);margin-bottom:12px}
+h1,h2,h3,p{margin-top:0}.serif{font-family:"Cormorant Garamond",serif}.display{font-family:"Italiana",serif}
+.hero{background:radial-gradient(circle at 90% 14%,rgba(142,166,176,.32),transparent 28%),radial-gradient(circle at 2% 80%,rgba(169,115,91,.20),transparent 30%),linear-gradient(155deg,#f2e8da,#ded0bd)}
+.frame{position:absolute;inset:18px;border:1px solid rgba(139,105,84,.42);border-radius:180px 180px 22px 22px;pointer-events:none}.frame:after{content:"";position:absolute;inset:7px;border:1px solid rgba(181,147,99,.24);border-radius:inherit}
+.monogram{width:72px;height:72px;border:1px solid rgba(181,147,99,.8);border-radius:50%;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:23px;letter-spacing:.12em;background:rgba(255,253,249,.35);backdrop-filter:blur(4px);margin-bottom:28px}
+.names{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(44px,13vw,69px);line-height:.84;text-align:center;margin:4px 0 16px}.names .amp{display:block;font-style:italic;font-weight:400;color:var(--blue-deep);font-size:.82em;margin:6px 0}
+.hero .date{font-family:"Italiana",serif;letter-spacing:.17em;font-size:18px;margin-top:18px}.sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:20px;text-align:center;max-width:330px;color:#64574d}
+.scroll{position:absolute;bottom:38px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#735f50}.scroll:after{content:"↓";display:block;font-size:18px;line-height:1;margin-top:9px}
+.leaf{position:absolute;width:175px;height:250px;opacity:.62;filter:drop-shadow(0 8px 15px rgba(74,53,37,.08))}.leaf.left{left:-76px;top:8%;transform:rotate(-16deg)}.leaf.right{right:-78px;bottom:4%;transform:rotate(170deg)}
+.leaf svg{width:100%;height:100%}
+.card{width:100%;background:rgba(255,253,249,.83);border:1px solid rgba(138,105,84,.23);box-shadow:0 22px 60px rgba(78,58,42,.11);border-radius:28px;padding:30px 24px;position:relative;backdrop-filter:blur(6px)}
+.scratch-wrap{background:linear-gradient(145deg,#d7c2a7,#f7eee1);}
+.scratch-title{font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1.05;text-align:center;margin-bottom:6px}.scratch-note{text-align:center;font-size:12px;letter-spacing:.08em;color:#735f50;margin-bottom:22px}
+.scratch-area{height:250px;border-radius:22px;position:relative;overflow:hidden;background:linear-gradient(150deg,#f8f1e7,#e6d7c5);border:1px solid rgba(138,105,84,.25)}
+.reveal{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}.reveal h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:33px;margin-bottom:5px}.reveal .spots{font-family:"Italiana",serif;font-size:54px;color:var(--blue-deep);line-height:1}.reveal p{margin:8px 0 0;font-size:13px}
+#scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}.scratch-hint{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;color:#fffdf9;text-align:center;font-family:"Cormorant Garamond",serif;font-size:25px;text-shadow:0 2px 12px rgba(57,44,34,.22)}
+.details{background:linear-gradient(180deg,#f8f3eb,#e7dbca)}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:42px;font-weight:500;text-align:center;margin-bottom:28px}.detail-row{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;padding:18px 0;border-bottom:1px solid rgba(138,105,84,.18)}.detail-row:last-child{border-bottom:none}.icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(142,166,176,.18);font-size:19px}.detail-row h3{font-family:"Cormorant Garamond",serif;font-size:22px;margin:0 0 3px}.detail-row p{font-size:13px;line-height:1.55;margin:0;color:#65574d}
+.btn{border:0;border-radius:999px;padding:15px 22px;font:600 12px/1 "DM Sans",sans-serif;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:.2s transform,.2s opacity;background:var(--blue-deep);color:white}.btn:active{transform:scale(.98)}.btn.earth{background:var(--earth)}.btn.light{background:transparent;color:var(--ink);border:1px solid rgba(63,56,50,.35)}
+.countdown{background:linear-gradient(150deg,#718894,#4f6873);color:#f9f3e9}.count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;margin-top:20px}.count-box{text-align:center;border:1px solid rgba(255,255,255,.24);border-radius:20px;padding:18px 4px;background:rgba(255,255,255,.06)}.count-box strong{display:block;font-family:"Italiana",serif;font-size:31px;font-weight:400}.count-box span{font-size:8px;letter-spacing:.18em;text-transform:uppercase;opacity:.8}
+.rsvp{background:radial-gradient(circle at 15% 20%,rgba(142,166,176,.22),transparent 25%),#f7f0e6}.reserved{text-align:center;margin:-8px 0 25px;font-family:"Cormorant Garamond",serif;font-size:21px;color:#725d4e}.reserved strong{color:var(--blue-deep);font-size:31px;font-weight:500}.field{margin:16px 0}.field label{display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;color:#78665a}.field input,.field select{width:100%;border:1px solid rgba(138,105,84,.28);border-radius:14px;background:#fffdf8;padding:14px 13px;font:14px "DM Sans",sans-serif;color:var(--ink);outline:none}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{position:relative}.choice input{position:absolute;opacity:0}.choice label{border:1px solid rgba(138,105,84,.28);border-radius:16px;padding:16px 12px;text-align:center;display:block;font-size:13px;cursor:pointer;background:#fffdf8}.choice input:checked+label{background:var(--blue-deep);color:white;border-color:var(--blue-deep)}
+.status{display:none;margin-top:18px;padding:16px;border-radius:14px;background:rgba(142,166,176,.14);font-size:13px;line-height:1.55;text-align:center}.status.show{display:block}
+.gift{background:linear-gradient(155deg,#e2d5c3,#f9f3ea);text-align:center}.gift-copy{font-family:"Cormorant Garamond",serif;font-size:20px;line-height:1.35;max-width:350px}.qr-shell{margin:24px auto 18px;background:#fff;padding:14px;border-radius:24px;width:245px;box-shadow:0 14px 35px rgba(70,52,38,.12);border:1px solid rgba(138,105,84,.18)}.qr-shell img{width:100%;display:block;border-radius:14px}.zelle{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#725f50}
+.final{background:linear-gradient(155deg,#58717c,#8da1a8);color:#fffaf3;text-align:center}.final .names{font-size:58px}.final p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:21px}.tiny{font-size:10px;opacity:.72;margin-top:30px;letter-spacing:.1em}
+@media (max-width:380px){.section{padding-left:20px;padding-right:20px}.count-box strong{font-size:26px}.card{padding:25px 18px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <main>
-    <h1>Yara & Mauricio</h1>
-    <p>7 de noviembre de 2026</p>
-    <p>🤍 Nuestra invitación está funcionando 🤍</p>
-  </main>
+<main class="shell">
+  <section class="section hero" id="inicio">
+    <div class="frame"></div>
+    <div class="leaf left" aria-hidden="true"><svg viewBox="0 0 160 250" fill="none"><path d="M85 245C80 178 92 116 118 24" stroke="#6e7c68" stroke-width="2"/><g fill="#879785"><ellipse cx="95" cy="185" rx="18" ry="7" transform="rotate(-34 95 185)"/><ellipse cx="75" cy="155" rx="19" ry="7" transform="rotate(24 75 155)"/><ellipse cx="111" cy="133" rx="18" ry="7" transform="rotate(-35 111 133)"/><ellipse cx="88" cy="103" rx="18" ry="7" transform="rotate(27 88 103)"/><ellipse cx="126" cy="79" rx="17" ry="7" transform="rotate(-35 126 79)"/><ellipse cx="105" cy="52" rx="16" ry="6" transform="rotate(25 105 52)"/></g></svg></div>
+    <div class="leaf right" aria-hidden="true"><svg viewBox="0 0 160 250" fill="none"><path d="M85 245C80 178 92 116 118 24" stroke="#9a7158" stroke-width="2"/><g fill="#b37e63"><ellipse cx="95" cy="185" rx="18" ry="7" transform="rotate(-34 95 185)"/><ellipse cx="75" cy="155" rx="19" ry="7" transform="rotate(24 75 155)"/><ellipse cx="111" cy="133" rx="18" ry="7" transform="rotate(-35 111 133)"/><ellipse cx="88" cy="103" rx="18" ry="7" transform="rotate(27 88 103)"/><ellipse cx="126" cy="79" rx="17" ry="7" transform="rotate(-35 126 79)"/><ellipse cx="105" cy="52" rx="16" ry="6" transform="rotate(25 105 52)"/></g></svg></div>
+    <div class="monogram">Y · M</div>
+    <div class="eyebrow">Together with their families</div>
+    <h1 class="names"><span>Yara</span><span class="amp">&</span><span>Mauricio</span></h1>
+    <p class="sub">request the pleasure of your company as they celebrate their wedding</p>
+    <div class="date">NOVEMBER 07 · 2026</div>
+    <div class="scroll">Discover the invitation</div>
+  </section>
+
+  <section class="section scratch-wrap" id="scratch-section">
+    <div class="card">
+      <div class="eyebrow" style="text-align:center">A little surprise for you</div>
+      <h2 class="scratch-title">Scratch to reveal<br>your invitation</h2>
+      <p class="scratch-note">Desliza tu dedo sobre la tarjeta</p>
+      <div class="scratch-area">
+        <div class="reveal">
+          <div>
+            <div class="eyebrow">Invitación para</div>
+            <h3 id="guestReveal">Nuestra familia y amigos</h3>
+            <div class="spots" id="spotsReveal">—</div>
+            <p id="spotsText">lugares reservados con cariño para ustedes</p>
+          </div>
+        </div>
+        <canvas id="scratch"></canvas>
+        <div class="scratch-hint" id="scratchHint">✦ &nbsp; RASCA AQUÍ &nbsp; ✦</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section details" id="detalles">
+    <div class="eyebrow">The celebration</div>
+    <h2 class="section-title">Nuestro gran día</h2>
+    <div class="card">
+      <div class="detail-row"><div class="icon">♡</div><div><h3>Saturday, November 7, 2026</h3><p>Reception · 5:00 PM — 12:00 AM</p></div></div>
+      <div class="detail-row"><div class="icon">⌖</div><div><h3>Sol Banquet Center</h3><p>3490 E Orangethorpe Ave<br>Anaheim, CA 92807</p><div style="margin-top:12px"><a class="btn light" href="https://maps.google.com/?q=Sol+Banquet+Center+3490+E+Orangethorpe+Ave+Anaheim+CA+92807" target="_blank" rel="noopener">View location</a></div></div></div>
+      <div class="detail-row"><div class="icon">✦</div><div><h3>Black Tie</h3><p>Dark &amp; Sophisticated</p></div></div>
+    </div>
+  </section>
+
+  <section class="section countdown">
+    <div class="eyebrow" style="color:#e9dfd1">Until we celebrate</div>
+    <h2 class="section-title" style="margin-bottom:10px">The countdown is on</h2>
+    <p class="sub" style="color:#f1e8dc">Cada día nos acerca un poco más.</p>
+    <div class="count-grid">
+      <div class="count-box"><strong id="days">00</strong><span>Days</span></div>
+      <div class="count-box"><strong id="hours">00</strong><span>Hours</span></div>
+      <div class="count-box"><strong id="mins">00</strong><span>Minutes</span></div>
+      <div class="count-box"><strong id="secs">00</strong><span>Seconds</span></div>
+    </div>
+  </section>
+
+  <section class="section rsvp" id="rsvp">
+    <div class="eyebrow">Répondez s'il vous plaît</div>
+    <h2 class="section-title">Will you join us?</h2>
+    <div class="reserved" id="reservedLine">Hemos reservado <strong>—</strong> lugares para ustedes.</div>
+    <form class="card" id="rsvpForm">
+      <div class="field"><label>Invitación</label><input id="guestName" name="guest" readonly /></div>
+      <div class="field"><label>¿Podrán acompañarnos?</label><div class="choices"><div class="choice"><input type="radio" id="yes" name="attendance" value="yes" required><label for="yes">Sí, ahí estaremos</label></div><div class="choice"><input type="radio" id="no" name="attendance" value="no" required><label for="no">No podremos asistir</label></div></div></div>
+      <div class="field" id="countField"><label>¿Cuántos asistirán?</label><select id="attendingCount" name="count"></select></div>
+      <div class="field"><label>Mensaje para los novios · opcional</label><input id="message" name="message" maxlength="180" placeholder="Con cariño…" /></div>
+      <button class="btn earth" type="submit" style="width:100%;margin-top:6px">Confirmar asistencia</button>
+      <div class="status" id="rsvpStatus"></div>
+    </form>
+  </section>
+
+  <section class="section gift" id="regalo">
+    <div class="eyebrow">With love & gratitude</div>
+    <h2 class="section-title">Your presence is<br>our greatest gift</h2>
+    <p class="gift-copy">For those who wish to bless our new beginning, a monetary gift would be deeply appreciated.</p>
+    <div class="qr-shell"><img src="zelle-qr.png" alt="Código QR de Zelle para Yara y Mauricio" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;padding:48px 10px;color:#725f50;font-size:12px;letter-spacing:.08em&quot;>CÓDIGO QR</div>'" /></div>
+    <div class="zelle">Scan with your phone · Zelle</div>
+  </section>
+
+  <section class="section final compact">
+    <div class="monogram" style="border-color:rgba(255,255,255,.65)">Y · M</div>
+    <h2 class="names"><span>Yara</span><span class="amp" style="color:#e9d7c4">&</span><span>Mauricio</span></h2>
+    <p>We can't wait to celebrate with you.</p>
+    <div class="tiny">NOVEMBER 07 · 2026 · ANAHEIM, CALIFORNIA</div>
+  </section>
+</main>
+<script>
+const guests={
+  "millan":{name:"Millan",spots:3},"jose1":{name:"Jose",spots:1},"osiel":{name:"Osiel",spots:2},"betty":{name:"Betty",spots:1},"paola-omar":{name:"Paola & Omar",spots:3},"ulysses":{name:"Ulysses",spots:6},"luis":{name:"Luis",spots:5},"zavala":{name:"Zavala",spots:2},"mama-osiel":{name:"Mamá de Osiel",spots:5},"jenny":{name:"Jenny",spots:3},"jesus":{name:"Jesús",spots:3},"chino":{name:"Chino",spots:2},"marcos":{name:"Marcos",spots:3},"poblano":{name:"Poblano",spots:4},"alexander":{name:"Alexander",spots:2},"familia-castro":{name:"Familia Castro",spots:6},
+  "ana-b":{name:"Ana B",spots:1},"cristian":{name:"Cristian",spots:3},"katalina":{name:"Katalina",spots:2},"adriana":{name:"Adriana",spots:3},"ana":{name:"Ana",spots:10},"irene":{name:"Irene",spots:3},"summer":{name:"Summer",spots:2},"sanjay":{name:"Sanjay",spots:3},"araceli":{name:"Araceli",spots:5},"sarahi-rodriguez":{name:"Sarahi Rodriguez",spots:2},"ricardo":{name:"Ricardo",spots:2},"jose2":{name:"Jose",spots:2},"laura":{name:"Laura",spots:2},"carlos":{name:"Carlos",spots:2},"rafael":{name:"Rafael",spots:2},"jose-v":{name:"Jose V",spots:2},"mike":{name:"Mike",spots:2},"jairo":{name:"Jairo",spots:1}
+};
+const params=new URLSearchParams(location.search); const id=params.get('id')||'millan'; const guest=guests[id]||{name:'Invitado especial',spots:1};
+document.getElementById('guestReveal').textContent=guest.name;document.getElementById('spotsReveal').textContent=guest.spots;document.getElementById('spotsText').textContent=guest.spots===1?'lugar reservado con cariño para ti':'lugares reservados con cariño para ustedes';
+document.getElementById('guestName').value=guest.name;document.getElementById('reservedLine').innerHTML=`Hemos reservado <strong>${guest.spots}</strong> ${guest.spots===1?'lugar para ti.':'lugares para ustedes.'}`;
+const sel=document.getElementById('attendingCount');for(let i=1;i<=guest.spots;i++){const o=document.createElement('option');o.value=i;o.textContent=i;sel.appendChild(o)}
+const yes=document.getElementById('yes'),no=document.getElementById('no'),countField=document.getElementById('countField');function toggleCount(){countField.style.display=no.checked?'none':'block'}yes.addEventListener('change',toggleCount);no.addEventListener('change',toggleCount);
+// Countdown
+const daysEl=document.getElementById('days'),hoursEl=document.getElementById('hours'),minsEl=document.getElementById('mins'),secsEl=document.getElementById('secs');
+const wedding=new Date('2026-11-07T17:00:00-08:00').getTime();
+function tick(){let d=Math.max(0,wedding-Date.now());const day=Math.floor(d/86400000);d%=86400000;const hr=Math.floor(d/3600000);d%=3600000;const mi=Math.floor(d/60000);const se=Math.floor((d%60000)/1000);daysEl.textContent=String(day).padStart(2,'0');hoursEl.textContent=String(hr).padStart(2,'0');minsEl.textContent=String(mi).padStart(2,'0');secsEl.textContent=String(se).padStart(2,'0')}
+tick();setInterval(tick,1000);
+// Scratch card — guarded so a canvas issue never breaks the invitation
+const canvas=document.getElementById('scratch'),hint=document.getElementById('scratchHint');
+if(canvas){const ctx=canvas.getContext('2d');if(ctx){let drawing=false,revealed=false;function resize(){const r=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);if(!r.width||!r.height)return;canvas.width=r.width*dpr;canvas.height=r.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation='source-over';const g=ctx.createLinearGradient(0,0,r.width,r.height);g.addColorStop(0,'#79919a');g.addColorStop(.48,'#9aafaf');g.addColorStop(1,'#b28f73');ctx.fillStyle=g;ctx.fillRect(0,0,r.width,r.height);ctx.fillStyle='rgba(255,255,255,.18)';for(let x=0;x<r.width;x+=18){for(let y=0;y<r.height;y+=18){ctx.beginPath();ctx.arc(x+(y%36?6:0),y,1.1,0,Math.PI*2);ctx.fill()}}ctx.globalCompositeOperation='destination-out'}resize();window.addEventListener('resize',()=>{if(!revealed)resize()});function pos(e){const r=canvas.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return{x:p.clientX-r.left,y:p.clientY-r.top}}function scratch(e){if(!drawing)return;e.preventDefault();const p=pos(e);ctx.beginPath();ctx.arc(p.x,p.y,27,0,Math.PI*2);ctx.fill();if(hint)hint.style.opacity='.35';check()}function check(){const im=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let i=3;i<im.length;i+=64){total++;if(im[i]<80)clear++}if(total&&clear/total>.48){revealed=true;canvas.style.transition='opacity .6s';canvas.style.opacity='0';if(hint)hint.style.opacity='0';setTimeout(()=>{canvas.style.pointerEvents='none';if(hint)hint.style.display='none'},650)}}['mousedown','touchstart'].forEach(ev=>canvas.addEventListener(ev,e=>{drawing=true;scratch(e)},{passive:false}));['mousemove','touchmove'].forEach(ev=>canvas.addEventListener(ev,scratch,{passive:false}));['mouseup','mouseleave','touchend','touchcancel'].forEach(ev=>canvas.addEventListener(ev,()=>drawing=false));}}
+// RSVP → Vercel function → Airtable
+const form=document.getElementById('rsvpForm'),status=document.getElementById('rsvpStatus');
+form.addEventListener('submit',async e=>{e.preventDefault();const attendance=new FormData(form).get('attendance');if(!attendance)return;const data={id,guest:guest.name,maxSpots:guest.spots,attendance,count:attendance==='yes'?Number(sel.value):0,message:document.getElementById('message').value.trim(),submittedAt:new Date().toISOString()};status.className='status show';status.textContent='Guardando tu confirmación…';try{const rr=await fetch('/api/rsvp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const result=await rr.json().catch(()=>({}));if(!rr.ok)throw new Error(result.error||'No se pudo guardar');status.innerHTML=attendance==='yes'?`¡Gracias, ${guest.name}! Hemos registrado <strong>${data.count}</strong> ${data.count===1?'asistente':'asistentes'}. ♡`:`Gracias por hacérnoslo saber, ${guest.name}. Los tendremos presentes con cariño. ♡`;form.querySelector('button[type=submit]').disabled=true;}catch(err){console.error(err);status.textContent='No pudimos guardar tu respuesta. Intenta nuevamente en un momento.';}status.scrollIntoView({behavior:'smooth',block:'center'});});
+</script>
 </body>
 </html>

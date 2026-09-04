@@ -81,30 +81,30 @@ h1,h2,h3,p{margin-top:0}.serif{font-family:"Cormorant Garamond",serif}.display{f
   </section>
 
   <section class="section details" id="detalles">
-    <div class="eyebrow">The celebration</div>
+    <div class="eyebrow">La celebración</div>
     <h2 class="section-title">Nuestro gran día</h2>
     <div class="card">
-      <div class="detail-row"><div class="icon">♡</div><div><h3>Saturday, November 7, 2026</h3><p>Reception · 5:00 PM — 12:00 AM</p></div></div>
-      <div class="detail-row"><div class="icon">⌖</div><div><h3>Sol Banquet Center</h3><p>3490 E Orangethorpe Ave<br>Anaheim, CA 92807</p><div style="margin-top:12px"><a class="btn light" href="https://maps.google.com/?q=Sol+Banquet+Center+3490+E+Orangethorpe+Ave+Anaheim+CA+92807" target="_blank" rel="noopener">View location</a></div></div></div>
+      <div class="detail-row"><div class="icon">♡</div><div><h3>Sábado, 7 de noviembre de 2026</h3><p>Recepción · 5:00 PM — 12:00 AM</p></div></div>
+      <div class="detail-row"><div class="icon">⌖</div><div><h3>Sol Banquet Center</h3><p>3490 E Orangethorpe Ave<br>Anaheim, CA 92807</p><div style="margin-top:12px"><a class="btn light" href="https://maps.google.com/?q=Sol+Banquet+Center+3490+E+Orangethorpe+Ave+Anaheim+CA+92807" target="_blank" rel="noopener">Ver ubicación</a></div></div></div>
       <div class="detail-row"><div class="icon">✦</div><div><h3>Black Tie</h3><p>Dark &amp; Sophisticated</p></div></div>
     </div>
   </section>
 
   <section class="section countdown">
-    <div class="eyebrow" style="color:#e9dfd1">Until we celebrate</div>
-    <h2 class="section-title" style="margin-bottom:10px">The countdown is on</h2>
+    <div class="eyebrow" style="color:#e9dfd1">Hasta nuestra celebración</div>
+    <h2 class="section-title" style="margin-bottom:10px">La cuenta regresiva comenzó</h2>
     <p class="sub" style="color:#f1e8dc">Cada día nos acerca un poco más.</p>
     <div class="count-grid">
-      <div class="count-box"><strong id="days">00</strong><span>Days</span></div>
-      <div class="count-box"><strong id="hours">00</strong><span>Hours</span></div>
-      <div class="count-box"><strong id="mins">00</strong><span>Minutes</span></div>
-      <div class="count-box"><strong id="secs">00</strong><span>Seconds</span></div>
+      <div class="count-box"><strong id="days">00</strong><span>Días</span></div>
+      <div class="count-box"><strong id="hours">00</strong><span>Horas</span></div>
+      <div class="count-box"><strong id="mins">00</strong><span>Minutos</span></div>
+      <div class="count-box"><strong id="secs">00</strong><span>Segundos</span></div>
     </div>
   </section>
 
   <section class="section rsvp" id="rsvp">
     <div class="eyebrow">Répondez s'il vous plaît</div>
-    <h2 class="section-title">Will you join us?</h2>
+    <h2 class="section-title">¿Nos acompañan?</h2>
     <div class="reserved" id="reservedLine">Hemos reservado <strong>—</strong> lugares para ustedes.</div>
     <form class="card" id="rsvpForm">
       <div class="field"><label>Invitación</label><input id="guestName" name="guest" readonly /></div>
@@ -117,41 +117,51 @@ h1,h2,h3,p{margin-top:0}.serif{font-family:"Cormorant Garamond",serif}.display{f
   </section>
 
   <section class="section gift" id="regalo">
-    <div class="eyebrow">With love & gratitude</div>
-    <h2 class="section-title">Your presence is<br>our greatest gift</h2>
-    <p class="gift-copy">For those who wish to bless our new beginning, a monetary gift would be deeply appreciated.</p>
-    <div class="qr-shell"><img src="zelle-qr.png" alt="Código QR de Zelle para Yara y Mauricio" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;padding:48px 10px;color:#725f50;font-size:12px;letter-spacing:.08em&quot;>CÓDIGO QR</div>'" /></div>
-    <div class="zelle">Scan with your phone · Zelle</div>
+    <div class="eyebrow">Con amor y gratitud</div>
+    <h2 class="section-title">Su presencia es<br>nuestro mejor regalo</h2>
+    <p class="gift-copy">Si desean acompañar este nuevo comienzo con un detalle, hemos preparado una opción de regalo digital.</p>
+    <div class="qr-shell" id="qrShell"><img src="zelle-qr.png" alt="Código QR de Zelle para Yara y Mauricio" onerror="this.remove();document.getElementById('qrShell').innerHTML='<div style=&quot;padding:60px 12px;color:#725f50;font-size:11px;letter-spacing:.18em;line-height:1.8;text-transform:uppercase&quot;>Código QR<br>se agregará aquí</div>'" /></div>
+    <div class="zelle">Escanea con tu teléfono · Zelle</div>
   </section>
 
   <section class="section final compact">
     <div class="monogram" style="border-color:rgba(255,255,255,.65)">Y · M</div>
     <h2 class="names"><span>Yara</span><span class="amp" style="color:#e9d7c4">&</span><span>Mauricio</span></h2>
-    <p>We can't wait to celebrate with you.</p>
+    <p>Estamos felices de celebrar este día con ustedes.</p>
     <div class="tiny">NOVEMBER 07 · 2026 · ANAHEIM, CALIFORNIA</div>
   </section>
 </main>
 <script>
-const guests={
-  "millan":{name:"Millan",spots:3},"jose1":{name:"Jose",spots:1},"osiel":{name:"Osiel",spots:2},"betty":{name:"Betty",spots:1},"paola-omar":{name:"Paola & Omar",spots:3},"ulysses":{name:"Ulysses",spots:6},"luis":{name:"Luis",spots:5},"zavala":{name:"Zavala",spots:2},"mama-osiel":{name:"Mamá de Osiel",spots:5},"jenny":{name:"Jenny",spots:3},"jesus":{name:"Jesús",spots:3},"chino":{name:"Chino",spots:2},"marcos":{name:"Marcos",spots:3},"poblano":{name:"Poblano",spots:4},"alexander":{name:"Alexander",spots:2},"familia-castro":{name:"Familia Castro",spots:6},
-  "ana-b":{name:"Ana B",spots:1},"cristian":{name:"Cristian",spots:3},"katalina":{name:"Katalina",spots:2},"adriana":{name:"Adriana",spots:3},"ana":{name:"Ana",spots:10},"irene":{name:"Irene",spots:3},"summer":{name:"Summer",spots:2},"sanjay":{name:"Sanjay",spots:3},"araceli":{name:"Araceli",spots:5},"sarahi-rodriguez":{name:"Sarahi Rodriguez",spots:2},"ricardo":{name:"Ricardo",spots:2},"jose2":{name:"Jose",spots:2},"laura":{name:"Laura",spots:2},"carlos":{name:"Carlos",spots:2},"rafael":{name:"Rafael",spots:2},"jose-v":{name:"Jose V",spots:2},"mike":{name:"Mike",spots:2},"jairo":{name:"Jairo",spots:1}
-};
-const params=new URLSearchParams(location.search); const id=params.get('id')||'millan'; const guest=guests[id]||{name:'Invitado especial',spots:1};
+const guests={"luis-5": {"name": "Luis", "spots": 5}, "ulysses-6": {"name": "Ulysses", "spots": 6}, "betty-1": {"name": "Betty", "spots": 1}, "osiel-2": {"name": "Osiel", "spots": 2}, "mike-2": {"name": "Mike", "spots": 2}, "millan-3": {"name": "Millan", "spots": 3}, "alexander-2": {"name": "Alexander", "spots": 2}, "jose-1": {"name": "Jose", "spots": 1}, "chino-2": {"name": "Chino", "spots": 2}, "araceli-5": {"name": "Araceli", "spots": 5}, "irene-3": {"name": "Irene", "spots": 3}, "ana-b-1": {"name": "Ana B", "spots": 1}, "zavala-2": {"name": "Zavala", "spots": 2}, "jesus-3": {"name": "Jesús", "spots": 3}, "katalina-2": {"name": "Katalina", "spots": 2}, "familia-castro-6": {"name": "Familia Castro", "spots": 6}, "summer-2": {"name": "Summer", "spots": 2}, "sanjay-3": {"name": "Sanjay", "spots": 3}, "jose-v-2": {"name": "Jose V", "spots": 2}, "rafael-2": {"name": "Rafael", "spots": 2}, "ricardo-2": {"name": "Ricardo", "spots": 2}, "carlos-2": {"name": "Carlos", "spots": 2}, "jose-2": {"name": "Jose", "spots": 2}, "marcos-3": {"name": "Marcos", "spots": 3}, "paola-omar-3": {"name": "Paola & Omar", "spots": 3}, "jairo-1": {"name": "Jairo", "spots": 1}, "cristian-3": {"name": "Cristian", "spots": 3}, "adriana-3": {"name": "Adriana", "spots": 3}, "poblano-4": {"name": "Poblano", "spots": 4}, "mama-osiel-5": {"name": "Mamá de Osiel", "spots": 5}, "jenny-3": {"name": "Jenny", "spots": 3}, "laura-2": {"name": "Laura", "spots": 2}, "sarahi-rodriguez-2": {"name": "Sarahi Rodriguez", "spots": 2}, "ana-10": {"name": "Ana", "spots": 10}};
+const params=new URLSearchParams(location.search); let id=params.get('id')||params.get('code')||'millan-3'; if(id==='millan') id='millan-3'; const guest=guests[id]||{name:'Invitado especial',spots:1};
 document.getElementById('guestReveal').textContent=guest.name;document.getElementById('spotsReveal').textContent=guest.spots;document.getElementById('spotsText').textContent=guest.spots===1?'lugar reservado con cariño para ti':'lugares reservados con cariño para ustedes';
 document.getElementById('guestName').value=guest.name;document.getElementById('reservedLine').innerHTML=`Hemos reservado <strong>${guest.spots}</strong> ${guest.spots===1?'lugar para ti.':'lugares para ustedes.'}`;
 const sel=document.getElementById('attendingCount');for(let i=1;i<=guest.spots;i++){const o=document.createElement('option');o.value=i;o.textContent=i;sel.appendChild(o)}
 const yes=document.getElementById('yes'),no=document.getElementById('no'),countField=document.getElementById('countField');function toggleCount(){countField.style.display=no.checked?'none':'block'}yes.addEventListener('change',toggleCount);no.addEventListener('change',toggleCount);
-// Countdown
-const daysEl=document.getElementById('days'),hoursEl=document.getElementById('hours'),minsEl=document.getElementById('mins'),secsEl=document.getElementById('secs');
-const wedding=new Date('2026-11-07T17:00:00-08:00').getTime();
-function tick(){let d=Math.max(0,wedding-Date.now());const day=Math.floor(d/86400000);d%=86400000;const hr=Math.floor(d/3600000);d%=3600000;const mi=Math.floor(d/60000);const se=Math.floor((d%60000)/1000);daysEl.textContent=String(day).padStart(2,'0');hoursEl.textContent=String(hr).padStart(2,'0');minsEl.textContent=String(mi).padStart(2,'0');secsEl.textContent=String(se).padStart(2,'0')}
-tick();setInterval(tick,1000);
-// Scratch card — guarded so a canvas issue never breaks the invitation
-const canvas=document.getElementById('scratch'),hint=document.getElementById('scratchHint');
-if(canvas){const ctx=canvas.getContext('2d');if(ctx){let drawing=false,revealed=false;function resize(){const r=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);if(!r.width||!r.height)return;canvas.width=r.width*dpr;canvas.height=r.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation='source-over';const g=ctx.createLinearGradient(0,0,r.width,r.height);g.addColorStop(0,'#79919a');g.addColorStop(.48,'#9aafaf');g.addColorStop(1,'#b28f73');ctx.fillStyle=g;ctx.fillRect(0,0,r.width,r.height);ctx.fillStyle='rgba(255,255,255,.18)';for(let x=0;x<r.width;x+=18){for(let y=0;y<r.height;y+=18){ctx.beginPath();ctx.arc(x+(y%36?6:0),y,1.1,0,Math.PI*2);ctx.fill()}}ctx.globalCompositeOperation='destination-out'}resize();window.addEventListener('resize',()=>{if(!revealed)resize()});function pos(e){const r=canvas.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return{x:p.clientX-r.left,y:p.clientY-r.top}}function scratch(e){if(!drawing)return;e.preventDefault();const p=pos(e);ctx.beginPath();ctx.arc(p.x,p.y,27,0,Math.PI*2);ctx.fill();if(hint)hint.style.opacity='.35';check()}function check(){const im=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let i=3;i<im.length;i+=64){total++;if(im[i]<80)clear++}if(total&&clear/total>.48){revealed=true;canvas.style.transition='opacity .6s';canvas.style.opacity='0';if(hint)hint.style.opacity='0';setTimeout(()=>{canvas.style.pointerEvents='none';if(hint)hint.style.display='none'},650)}}['mousedown','touchstart'].forEach(ev=>canvas.addEventListener(ev,e=>{drawing=true;scratch(e)},{passive:false}));['mousemove','touchmove'].forEach(ev=>canvas.addEventListener(ev,scratch,{passive:false}));['mouseup','mouseleave','touchend','touchcancel'].forEach(ev=>canvas.addEventListener(ev,()=>drawing=false));}}
-// RSVP → Vercel function → Airtable
+// Countdown (Anaheim, California is UTC-8 on Nov 7, 2026)
+const wedding=new Date('2026-11-07T17:00:00-08:00').getTime();function tick(){let d=Math.max(0,wedding-Date.now());const day=Math.floor(d/86400000);d%=86400000;const hr=Math.floor(d/3600000);d%=3600000;const mi=Math.floor(d/60000);const se=Math.floor((d%60000)/1000);days.textContent=String(day).padStart(2,'0');hours.textContent=String(hr).padStart(2,'0');mins.textContent=String(mi).padStart(2,'0');secs.textContent=String(se).padStart(2,'0')}tick();setInterval(tick,1000);
+// Scratch card
+const canvas=document.getElementById('scratch'),ctx=canvas.getContext('2d'),hint=document.getElementById('scratchHint');let drawing=false,revealed=false;function resize(){const r=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=r.width*dpr;canvas.height=r.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation='source-over';const g=ctx.createLinearGradient(0,0,r.width,r.height);g.addColorStop(0,'#79919a');g.addColorStop(.48,'#9aafaF');g.addColorStop(1,'#b28f73');ctx.fillStyle=g;ctx.fillRect(0,0,r.width,r.height);ctx.fillStyle='rgba(255,255,255,.18)';for(let x=0;x<r.width;x+=18){for(let y=0;y<r.height;y+=18){ctx.beginPath();ctx.arc(x+(y%36?6:0),y,1.1,0,Math.PI*2);ctx.fill()}}ctx.globalCompositeOperation='destination-out'}resize();window.addEventListener('resize',()=>{if(!revealed)resize()});function pos(e){const r=canvas.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return{x:p.clientX-r.left,y:p.clientY-r.top}}function scratch(e){if(!drawing)return;e.preventDefault();const p=pos(e);ctx.beginPath();ctx.arc(p.x,p.y,27,0,Math.PI*2);ctx.fill();hint.style.opacity='.35';check()}function check(){const im=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let i=3;i<im.length;i+=64){total++;if(im[i]<80)clear++}if(clear/total>.48){revealed=true;canvas.style.transition='opacity .6s';canvas.style.opacity='0';hint.style.opacity='0';setTimeout(()=>{canvas.style.pointerEvents='none';hint.style.display='none'},650)}}['mousedown','touchstart'].forEach(ev=>canvas.addEventListener(ev,e=>{drawing=true;scratch(e)},{passive:false}));['mousemove','touchmove'].forEach(ev=>canvas.addEventListener(ev,scratch,{passive:false}));['mouseup','mouseleave','touchend','touchcancel'].forEach(ev=>canvas.addEventListener(ev,()=>drawing=false));
+// RSVP conectado al endpoint del proyecto.
 const form=document.getElementById('rsvpForm'),status=document.getElementById('rsvpStatus');
-form.addEventListener('submit',async e=>{e.preventDefault();const attendance=new FormData(form).get('attendance');if(!attendance)return;const data={id,guest:guest.name,maxSpots:guest.spots,attendance,count:attendance==='yes'?Number(sel.value):0,message:document.getElementById('message').value.trim(),submittedAt:new Date().toISOString()};status.className='status show';status.textContent='Guardando tu confirmación…';try{const rr=await fetch('/api/rsvp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const result=await rr.json().catch(()=>({}));if(!rr.ok)throw new Error(result.error||'No se pudo guardar');status.innerHTML=attendance==='yes'?`¡Gracias, ${guest.name}! Hemos registrado <strong>${data.count}</strong> ${data.count===1?'asistente':'asistentes'}. ♡`:`Gracias por hacérnoslo saber, ${guest.name}. Los tendremos presentes con cariño. ♡`;form.querySelector('button[type=submit]').disabled=true;}catch(err){console.error(err);status.textContent='No pudimos guardar tu respuesta. Intenta nuevamente en un momento.';}status.scrollIntoView({behavior:'smooth',block:'center'});});
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const attendance=new FormData(form).get('attendance');
+  if(!attendance)return;
+  const data={code:id,guest:guest.name,maxSpots:guest.spots,attendance,count:attendance==='yes'?Number(sel.value):0,message:document.getElementById('message').value.trim()};
+  status.className='status show';status.textContent='Guardando tu confirmación…';
+  try{
+    const r=await fetch('/api/rsvp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const result=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(result.error||'No se pudo guardar');
+    status.innerHTML=attendance==='yes'?`¡Gracias, ${guest.name}! Hemos registrado <strong>${data.count}</strong> ${data.count===1?'asistente':'asistentes'}. ♡`:`Gracias por hacérnoslo saber, ${guest.name}. Los tendremos presentes con cariño. ♡`;
+    form.querySelector('button').disabled=true;
+  }catch(err){
+    console.error(err);
+    status.textContent='La invitación está lista; falta terminar la conexión del RSVP. Intenta nuevamente más tarde.';
+  }
+  status.scrollIntoView({behavior:'smooth',block:'center'});
+});
 </script>
 </body>
 </html>
